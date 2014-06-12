@@ -10,18 +10,26 @@ function init(){
 	scene.add(capsule);
 
 	var geometry = new ShipGeometry();
-	var material = new THREE.MeshFaceMaterial([
-		new THREE.MeshBasicMaterial({color: 0xff0000}),
-		new THREE.MeshBasicMaterial({color: 0x00ff00}),
-		new THREE.MeshBasicMaterial({color: 0x0000ff}),
-		new THREE.MeshBasicMaterial({color: 0xffff00})
-	]);
+	var material = new THREE.MeshPhongMaterial( {
+		ambient: 0x202020,
+		color: 0xdddddd,
+		specular: 0x009900,
+		shininess: 30,
+		shading: THREE.FlatShading
+	}); 
 	var mesh = new THREE.Mesh(geometry, material);
 	capsule.add(mesh);
 
-	capsule.add( new THREE.FaceNormalsHelper( mesh ) );
+	//capsule.add( new THREE.FaceNormalsHelper( mesh ) );
 
-	camera.position.z = 5;
+	var light = new THREE.AmbientLight( 0x404040 ); // soft white light
+	scene.add( light );
+
+	var directionalLight = new THREE.DirectionalLight( 0xffffff, 0.5 );
+	directionalLight.position.set( 0, 1, 1 );
+	scene.add( directionalLight );
+
+	camera.position.z = 7;
 
 	var render = function () {
 		requestAnimationFrame(render);
