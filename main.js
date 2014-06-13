@@ -13,7 +13,7 @@ function init(){
 	var material = new THREE.MeshPhongMaterial( {
 		ambient: 0x202020,
 		color: 0xdddddd,
-		specular: 0x009900,
+		specular: 0xdddddd,
 		shininess: 30,
 		shading: THREE.FlatShading
 	}); 

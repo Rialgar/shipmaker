@@ -44,13 +44,13 @@ window.ShipGeometry = function( params ) {
 
 	makeBox([30, 36, 26, 20, 31, 37, 25, 19]);
 
-	var conscale = params.connectionScale || 0;
+	var conscale = params.connectionScale || 0.5;
 
 	var top    = scope.vertices[44].z;
 	var bottom = scope.vertices[45].z;
 	var left   = Math.min(scope.vertices[57].x, scope.vertices[12].x);
 	var right  = Math.max(scope.vertices[43].x, scope.vertices[8].x);
-	var front  = scope.vertices[42].y;
+	var front  = Math.max(scope.vertices[42].y, scope.vertices[43].y);
 	var back   = scope.vertices[43].y + (scope.vertices[49].y-scope.vertices[43].y)*conscale;
 	makeSixPrism([
 		12,
