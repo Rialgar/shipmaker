@@ -65,6 +65,9 @@
 	ShipGeometry.prototype.setParams = function( params ) {
 		readFrom( this.params, params || {} );
 		this.recreate(false);
+		geometry.verticesNeedUpdate = true;
+		geometry.normalsNeedUpdate = true;
+		geometry.tangentsNeedUpdate = true;
 	};
 
 	ShipGeometry.prototype.recreate = function( createFaces ) {
@@ -86,7 +89,7 @@
 
 		var p = params.weapons;
 
-		var offset = p.offset; 
+		var offset = p.offset.clone(); 
 		p.center = center.clone();
 		p.center.add( offset );
 		makePylon( p );
@@ -99,7 +102,7 @@
 
 		p = params.engines;
 
-		offset = p.offset; 
+		offset = p.offset.clone(); 
 		p.center = center.clone();
 		p.center.add( offset );
 		makePylon( p );
@@ -140,12 +143,12 @@
 
 		function makePylon( params ) {
 
-			params = params || {};
+			params = params;
 
-			var r = params.radius || 1;
-			var l = params.length || 3.5;
-			var h = params.tipHeight || 0.8;
-			var c = params.center || new THREE.Vector3();
+			var r = params.radius;
+			var l = params.length;
+			var h = params.tipHeight;
+			var c = params.center;
 
 			var sqr = Math.sqrt( 0.75 );
 
@@ -295,5 +298,5 @@
 			}
 		}
 	};
-	
+
 })();
