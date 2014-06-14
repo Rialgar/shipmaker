@@ -44,10 +44,10 @@ window.ShipGeometry = function( params ) {
 
 	makeBox([30, 36, 26, 20, 31, 37, 25, 19]);
 
-	var conscale = params.connectionScale || 0.5;
+	var conscale = params.connectionScale || 0;
 
-	var top    = scope.vertices[44].z;
-	var bottom = scope.vertices[45].z;
+	var top    = Math.min(scope.vertices[44].z, scope.vertices[12].z);
+	var bottom = Math.max(scope.vertices[45].z, scope.vertices[11].z);
 	var left   = Math.min(scope.vertices[57].x, scope.vertices[12].x);
 	var right  = Math.max(scope.vertices[43].x, scope.vertices[8].x);
 	var front  = Math.max(scope.vertices[42].y, scope.vertices[43].y);
@@ -83,7 +83,6 @@ window.ShipGeometry = function( params ) {
 		var sqr = Math.sqrt( 0.75 );
 
 		var o = scope.vertices.length;
-		console.log(o,l,c);
 
 		scope.vertices.push( new THREE.Vector3(  0    ,  l/2 + h,  0   ).add(c) );
 
