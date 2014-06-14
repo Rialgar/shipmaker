@@ -3,11 +3,34 @@
 	<head>
 		<title>Rialgar’s Games</title>
 		<meta charset="utf-8"/>
+		<link href="./bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+		<link href="./slider/css/slider.css" rel="stylesheet"/>
 		<link rel="stylesheet" href="./style.css" type="text/css"/>
-		<script type="application/javascript" src=".threejs/three.min.js"/>
+
+		<script type="application/javascript" src="./threejs/three.min.js"/>
 		<script type="application/javascript" src="./ship.js"/>
+
+		<script src="./jquery/jquery-1.11.1.min.js"></script>
+    	<script src="./slider/js/bootstrap-slider.js"></script>
 		<script type="application/javascript" src="./main.js"/>
 	</head>
 	<body onload="init();">
+		<button id="button" type="button" class="btn btn-primary btn-xs">Settings</button>
+		<div id="sidebar">
+			<ul class="nav nav-tabs" id="sidebarTabs">
+				<li data-tab="main" class="active"><a href="#">Main</a></li>
+				<li data-tab="weapons"><a href="#">Weapons</a></li>
+				<li data-tab="engines"><a href="#">Engines</a></li>
+			</ul>
+
+			<!-- Tab panes -->
+			<div class="tab-content" id="sidebarTabContent">
+				<div class="tab-pane active" id="main">
+					<input type="text" class="slider"/>
+				</div>
+				<div class="tab-pane" id="weapons">This is a second longish blindtext containing nothing but senseless words. in fact you reading this means it does not work as intendet, because this is not to be read but to be representative.</div>
+				<div class="tab-pane" id="engines">This is a third longish blindtext containing nothing but senseless words. in fact you reading this means it does not work as intendet, because this is not to be read but to be representative.</div>
+			</div>
+		</div>
 	</body>
 </html>

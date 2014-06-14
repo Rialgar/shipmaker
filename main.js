@@ -31,7 +31,43 @@ function init(){
 
 	camera.position.z = 7;
 
-	var render = function () {
+	window.addEventListener("resize", onResize);
+
+	document.getElementById("button").addEventListener("click", function(){
+		document.getElementById("sidebar").classList.toggle("active");
+	});
+
+	var tabs = document.getElementById("sidebarTabs");
+	var tabContents = document.getElementById("sidebarTabContent");
+
+	var activeTab = tabs.getElementsByClassName("active")[0];
+	var activeTabContent = tabContents.getElementsByClassName("active")[0];
+
+	for (var i = 0; i < tabs.children.length; i++) {
+		tabs.children[i].addEventListener("click", function(e){
+			activeTab.classList.toggle("active");
+			this.classList.toggle("active");
+			activeTab = this;
+
+			activeTabContent.classList.toggle("active");
+			activeTabContent = document.getElementById(activeTab.getAttribute("data-tab"));
+			activeTabContent.classList.toggle("active");
+
+			e.preventDefault();
+		});
+	};
+
+	$('.slider').slider()
+
+	render();
+
+	function onResize() {
+		renderer.setSize(window.innerWidth, window.innerHeight);
+		camera.aspect = window.innerWidth/window.innerHeight;
+		camera.updateProjectionMatrix();
+	}
+
+	function render () {
 		requestAnimationFrame(render);
 
 		capsule.rotation.x += 0.01;
@@ -39,6 +75,4 @@ function init(){
 
 		renderer.render(scene, camera);
 	};
-
-	render();
 }

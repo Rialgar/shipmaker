@@ -1,0 +1,27 @@
+#button
+{
+	z-index: 1;
+	position: absolute;
+}
+
+
+#sidebar
+{
+	z-index: 1;
+	position: absolute;
+	top: 30px;
+	left: -310px;
+	width: 300px;
+
+	transition: left 200ms;
+	-webkit-transition: left 200ms;
+
+	background-color: white;
+	border-radius: 5px;
+	padding: 10px;
+}
+
+#sidebar.active
+{
+	left: 10px;
+}
