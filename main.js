@@ -57,7 +57,11 @@ function init(){
 		});
 	};
 
-	$('.slider').slider()
+	$('.slider').slider().on("slide", function(e){
+		
+	});
+
+	$('.slider').css("width", "100%");
 
 	render();
 

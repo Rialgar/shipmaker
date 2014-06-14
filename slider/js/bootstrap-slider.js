@@ -30,7 +30,7 @@
 							'<div class="tooltip"><div class="tooltip-arrow"></div><div class="tooltip-inner"></div></div>'+
 						'</div>')
 							.insertBefore(this.element)
-							.append(this.element);
+							//.append(this.element);
 		this.id = this.element.data('slider-id')||options.id;
 		if (this.id) {
 			this.picker[0].id = this.id;
@@ -144,6 +144,8 @@
 		} else {
 			this.tooltip.addClass('hide');
 		}
+
+		this.element.remove();
 	};
 
 	Slider.prototype = {
