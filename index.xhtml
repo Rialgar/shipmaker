@@ -18,22 +18,35 @@
 		<button id="button" type="button" class="btn btn-primary btn-xs">Settings</button>
 		<div id="sidebar">
 			<ul class="nav nav-tabs" id="sidebarTabs">
-				<li data-tab="main" class="active"><a href="#">Main</a></li>
+				<li data-tab="body" class="active"><a href="#">Body</a></li>
 				<li data-tab="weapons"><a href="#">Weapons</a></li>
 				<li data-tab="engines"><a href="#">Engines</a></li>
 			</ul>
 
 			<!-- Tab panes -->
 			<div class="tab-content" id="sidebarTabContent">
-				<div class="tab-pane active" id="main">
+				<div class="tab-pane active" id="body">
 					<dl>
-						<dd>Radius</dd><dt><input type="text" class="slider" data-slider-min="0" data-slider-max="2" data-slider-step="0.001" data-slider-value="1" /></dt>
-						<dd>Length</dd><dt><input type="text" class="slider" data-slider-min="0" data-slider-max="8" data-slider-step="0.001" data-slider-value="3.5" /></dt>
-						<dd>Tip</dd><dt><input type="text" class="slider" data-slider-min="-2" data-slider-max="2" data-slider-step="0.001" data-slider-value="1" /></dt>
+						<dd>Radius</dd><dt><input type="text" class="slider" data-param="body,radius" data-slider-min="0" data-slider-max="2" data-slider-step="0.001" data-slider-value="1" /></dt>
+						<dd>Length</dd><dt><input type="text" class="slider" data-param="body,length" data-slider-min="0" data-slider-max="8" data-slider-step="0.001" data-slider-value="3.5" /></dt>
+						<dd>Tip</dd><dt><input type="text" class="slider" data-param="body,tipHeight" data-slider-min="-2" data-slider-max="2" data-slider-step="0.001" data-slider-value="0.8" /></dt>
 					</dl>
 				</div>
-				<div class="tab-pane" id="weapons">This is a second longish blindtext containing nothing but senseless words. in fact you reading this means it does not work as intendet, because this is not to be read but to be representative.</div>
-				<div class="tab-pane" id="engines">This is a third longish blindtext containing nothing but senseless words. in fact you reading this means it does not work as intendet, because this is not to be read but to be representative.</div>
+				<div class="tab-pane" id="weapons">
+					<dl>
+						<dd>Radius</dd><dt><input type="text" class="slider" data-param="weapons,radius" data-slider-min="0" data-slider-max="2" data-slider-step="0.001" data-slider-value="0.7" /></dt>
+						<dd>Length</dd><dt><input type="text" class="slider" data-param="weapons,length" data-slider-min="0" data-slider-max="8" data-slider-step="0.001" data-slider-value="2" /></dt>
+						<dd>Tip</dd><dt><input type="text" class="slider" data-param="weapons,tipHeight" data-slider-min="-2" data-slider-max="2" data-slider-step="0.001" data-slider-value="0.8" /></dt>
+					</dl>
+				</div>
+				<div class="tab-pane" id="engines">
+					<dl>
+						<dd>Radius</dd><dt><input type="text" class="slider" data-param="engines,radius" data-slider-min="0" data-slider-max="2" data-slider-step="0.001" data-slider-value="0.8" /></dt>
+						<dd>Length</dd><dt><input type="text" class="slider" data-param="engines,length" data-slider-min="0" data-slider-max="8" data-slider-step="0.001" data-slider-value="1" /></dt>
+						<dd>Tip</dd><dt><input type="text" class="slider" data-param="engines,tipHeight" data-slider-min="-2" data-slider-max="2" data-slider-step="0.001" data-slider-value="0.8" /></dt>
+						<dd>Connection Scale</dd><dt><input type="text" class="slider" data-param="engines,connectionScale" data-slider-min="0" data-slider-max="1" data-slider-step="0.001" data-slider-value="-1" /></dt>
+					</dl>
+				</div>
 			</div>
 		</div>
 	</body>

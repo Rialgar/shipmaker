@@ -58,7 +58,19 @@ function init(){
 	};
 
 	$('.slider').slider().on("slide", function(e){
-		
+		var param = $(this).data("param").split(",");
+
+		var params = {};
+		var p = params;
+		for( var i = 0; i < param.length - 1; i++ ) {
+			p[ param[ i ] ] = {};
+			p = p[ param[ i ] ];
+		};
+		p[ param[ param.length - 1 ] ] = e.value;
+
+		console.log(param, e.value, params);
+
+		geometry.setParams(params);
 	});
 
 	$('.slider').css("width", "100%");

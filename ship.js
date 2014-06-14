@@ -42,7 +42,7 @@
 
 	ShipGeometry.prototype.params = {
 		center: new THREE.Vector3(0, 1, 0),
-		main: {
+		body: {
 			radius    : 1,
 			length    : 3.5,
 			tipHeight : 0.8
@@ -57,9 +57,9 @@
 			radius    : 0.8,
 			length    : 1,
 			tipHeight : 0.8,
-			offset: new THREE.Vector3( 1, -3.2, 0 )
+			offset: new THREE.Vector3( 1, -3.2, 0 ),
+			connectionScale: 0
 		},
-		connectionScale: 0
 	};
 
 	ShipGeometry.prototype.setParams = function( params ) {
@@ -83,8 +83,8 @@
 		var center = params.center;
 
 
-		params.main.center = center;
-		makePylon( params.main );
+		params.body.center = center;
+		makePylon( params.body );
 
 
 		var p = params.weapons;
@@ -114,7 +114,7 @@
 
 		makeBox( [ 30, 36, 26, 20, 31, 37, 25, 19 ] );
 
-		var conscale = params.connectionScale;
+		var conscale = params.engines.connectionScale;
 
 		var top    = Math.min( scope.vertices[ 44 ].z, scope.vertices[ 12 ].z );
 		var bottom = Math.max( scope.vertices[ 45 ].z, scope.vertices[ 11 ].z );
